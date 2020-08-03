@@ -27,31 +27,12 @@ Array.from(rows).forEach(row => {
   }
 });
 
-//create variables from html
-// var saveBtn = document.querySelector(".saveBtn");
-// // var descriptionEl = document.querySelector(".description");
-
-// saveBtn.addEventListener("click", function(event) {
-//     event.preventDefault();
-
-//         var myContent = document.getElementsByClassName("description").textContent;
-//         localStorage.setItem("myContent", myContent);
-//       });
-
-
-var description = $(".description").value;
-var hour = $(".hour").value;
-
-
-$( ".saveBtn" ).click(function() {
-localStorage.setItem("hour", hour);
-localStorage.setItem("description", description);
+$( ".saveBtn" ).click(function(e) {
+//get the hour from the button that we clicked
+//find the description in the field for that button
+//save that description in localstorage with the hour as the key
+e.preventDefault();
+var hour = e.target.id.substring(5);
+var description = $("#desc-" + hour).val();
+localStorage.setItem(hour, description);
 });
-
-// function setAttribute() {
-
-// };
-
-// $(".time-block").each(function()) {
-
-// }
