@@ -16,7 +16,7 @@ Array.from(rows).forEach(row => {
       rowHour = parseInt(rowIdString.slice(5));
     }
   if (rowHour) {
-    // Compares row id to current hour and sets class depending on hour
+    // Compares row id to current hour and sets class
     if (currentHour === rowHour) {
       row.setAttribute("class", "present");
     } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
@@ -25,6 +25,27 @@ Array.from(rows).forEach(row => {
       row.setAttribute("class", "past");
     }
   }
+});
+
+//create variables from html
+// var saveBtn = document.querySelector(".saveBtn");
+// // var descriptionEl = document.querySelector(".description");
+
+// saveBtn.addEventListener("click", function(event) {
+//     event.preventDefault();
+
+//         var myContent = document.getElementsByClassName("description").textContent;
+//         localStorage.setItem("myContent", myContent);
+//       });
+
+
+var description = $(".description").value;
+var hour = $(".hour").value;
+
+
+$( ".saveBtn" ).click(function() {
+localStorage.setItem("hour", hour);
+localStorage.setItem("description", description);
 });
 
 // function setAttribute() {
