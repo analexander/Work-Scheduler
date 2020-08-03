@@ -1,43 +1,35 @@
-//date at top
+//displays date at top
 var NowMoment = moment();
 var displayMoment = document.getElementById('currentDay');
 displayMoment.innerHTML = NowMoment.format('LLLL')
 
-
-// $(":button").addClass("saveBtn");
-
-// //text area
-// var textArea = document.createElement("textarea")
-// $(".col-8").append(textArea);
-// textArea.setAttribute("style", "width:100%;")
-
-
-
+// variables
 var rows = document.getElementsByClassName("row");
 var currentHour = parseInt(moment().format('H'));
 
+// Array of rows
 Array.from(rows).forEach(row => {
-  let
-    rowIdString = row.id,
-    rowHour;
-  if (rowIdString) {
-    rowHour = parseInt(rowIdString);
-  }
+    let
+      rowIdString = row.id,
+      rowHour;
+    if (rowIdString) {
+      rowHour = parseInt(rowIdString.slice(5));
+    }
   if (rowHour) {
-    // Compares row id to current hour and sets color accordingly
+    // Compares row id to current hour and sets class depending on hour
     if (currentHour === rowHour) {
-      rows.setAttribute("class", "present");
+      row.setAttribute("class", "present");
     } else if ((currentHour < rowHour) && (currentHour > rowHour - 6)) {
-      rows.setAttribute("class", "past");
+      row.setAttribute("class", "future");
     } else {
-      rows.setAttribute("class", "future");
+      row.setAttribute("class", "past");
     }
   }
 });
 
-function setAttribute() {
+// function setAttribute() {
 
-};
+// };
 
 // $(".time-block").each(function()) {
 
