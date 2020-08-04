@@ -25,7 +25,10 @@ Array.from(rows).forEach(row => {
       row.setAttribute("class", "past");
     }
   }
+// load from local storage
+console.log("Hour: " + rowHour + " = " + localStorage.getItem(rowHour));
 });
+
 
 $( ".saveBtn" ).click(function(e) {
 //get the hour from the button that we clicked
@@ -34,5 +37,5 @@ $( ".saveBtn" ).click(function(e) {
 e.preventDefault();
 var hour = e.target.id.substring(5);
 var description = $("#desc-" + hour).val();
-localStorage.setItem(hour, description);
+localStorage.setItem("hour: " + hour, "event: " + description);
 });
