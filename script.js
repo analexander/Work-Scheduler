@@ -41,5 +41,5 @@ $( ".saveBtn" ).click(function(e) {
 e.preventDefault();
 var hour = e.target.id.substring(5);
 var description = $("#desc-" + hour).val();
-localStorage.setItem("hour: " + hour, "event: " + description);
+localStorage.setItem(hour, description);
 });
