@@ -24,11 +24,15 @@ Array.from(rows).forEach(row => {
     } else {
       row.setAttribute("class", "past");
     }
-  }
-// load from local storage
-console.log("Hour: " + rowHour + " = " + localStorage.getItem(rowHour));
-});
 
+	// Get the description element for current row
+	var description = document.getElementById("desc-"+rowHour);
+    if (description) {
+		// Load the Description from storage
+        description.innerHTML = localStorage.getItem(rowHour);
+    }
+ }
+});
 
 $( ".saveBtn" ).click(function(e) {
 //get the hour from the button that we clicked
